@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления врача</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .logout {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logout">
+            <a href="{% url 'logout' %}">Выйти</a>
+        </div>
+        <h1>Панель управления врача</h1>
+
+        <p>Добро пожаловать, {{ request.user.username }}!</p>
+
+        <h2>Список пациентов</h2>
+        <ul>
+            <li><a href="#">Пациент 1</a></li>
+            <li><a href="#">Пациент 2</a></li>
+            <li><a href="#">Пациент 3</a></li>
+            <!-- Добавьте ссылки на реальных пациентов -->
+        </ul>
+
+        <h2>Действия</h2>
+        <ul>
+            <li><a href="#">Просмотреть записи</a></li>
+            <li><a href="#">Добавить новую запись</a></li>
+        </ul>
+    </div>
+</body>
+</html>
