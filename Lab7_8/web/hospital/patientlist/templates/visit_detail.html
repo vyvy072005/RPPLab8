@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали посещения</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #007bff;
+            border-radius: 4px;
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .actions a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .actions a:hover {
+            background-color: #0056b3;
+        }
+
+        .delete-link {
+            background-color: #dc3545;
+        }
+
+        .delete-link:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Детали посещения</h1>
+
+        <div class="detail-item">
+            <strong>Пациент:</strong> {{ visit.patient }}
+        </div>
+        <div class="detail-item">
+            <strong>Врач:</strong> {{ visit.doctor }}
+        </div>
+        <div class="detail-item">
+            <strong>Дата посещения:</strong> {{ visit.duration }}
+        </div>
+        <div class="detail-item">
+            <strong>Причина посещения:</strong> {{ visit.reason }}
+        </div>
+
+        <div class="actions">
+            <a href="{% url 'visit_update' visit.pk %}">Редактировать</a>
+            <a href="{% url 'visit_delete' visit.pk %}" class="delete-link">Удалить</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./web/hospital:/app  # Монтируем папку hospital
+    environment:
+      DJANGO_SETTINGS_MODULE: hospital.settings  # Используем hospital.settings
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1
+      POSTGRES_DB: hospital
+    ports:
+      - "5432:5432"
+
+volumes:
+  data:
